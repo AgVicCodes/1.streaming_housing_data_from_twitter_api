@@ -36,3 +36,27 @@ with open('keys.json') as file:
 
 
 """
+
+
+
+# path = "tweets_df.csv"
+
+# # if os.path.exists(path):
+# for i in range(5):
+#     new_path = "tweets_df" + str(i) + ".csv"
+
+#     print(new_path)
+# tweets_df.to_csv({}, index = False)
+
+# tweets_df.to_csv(path, index = False)
+
+import pandas as pd
+
+df = pd.read_csv("csv/tweets_df8.csv")
+# df = pd.read_csv("tweets_df36.csv")
+
+pd.set_option('display.max_rows', None)
+
+# assert df1.equals(df2) and df2.equals(df3)
+
+print(df)
