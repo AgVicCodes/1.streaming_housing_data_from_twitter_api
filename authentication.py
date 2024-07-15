@@ -34,60 +34,63 @@ async def main():
 
     queries = [
                 'rent energy water tax Tv license groceries',
-                'Birmingham rent energy water tax Tv license groceries', 
-                'Coventry rent energy water tax Tv license groceries', 
-                'Bristol rent energy water tax Tv license groceries', 
-                'Loughborough rent energy water tax Tv license groceries',
-                'Manchester rent energy water tax Tv license groceries',
-                'Dundee rent energy water tax Tv license groceries',
-                'Stoke rent energy water tax Tv license groceries',
-                'Glasgow rent energy water tax Tv license groceries',
-                'London rent energy water tax Tv license groceries',
-                'Lincoln rent energy water tax Tv license groceries',
-                'Swanley rent energy water tax Tv license groceries',
-                'Northampton rent energy water tax Tv license groceries',
-                'Durham rent energy water tax Tv license groceries',
-                'Sheffield rent energy water tax Tv license groceries',
-                'Leicester rent energy water tax Tv license groceries',
-                'Scotland rent energy water tax Tv license groceries',
-                'Luton rent energy water tax Tv license groceries',
-                'Essex rent energy water tax Tv license groceries',
-                'Bedford water tax groceries',
                 'Aberdeen rent energy water tax Tv license groceries',
+                'Bedford water tax groceries',
+                'Birmingham rent energy water tax Tv license groceries', 
                 'Bolton rent energy water tax Tv license groceries',
+                'Bristol rent energy water tax Tv license groceries', 
                 'Canterbury rent energy water tax Tv license groceries',
-                'Walsall rent energy water tax Tv license groceries',
-                'Sunderland rent energy water tax Tv license groceries',
-                'Leeds rent energy water tax Tv license groceries',
-                'Westminster rent energy water tax Tv license groceries',
-                'Ireland rent energy water tax Tv license groceries',
-                'Wolverhampton rent energy water tax Tv license groceries',
-                'Middlesbrough rent energy water tax Tv license groceries',
-                'Derby rent energy water tax Tv license groceries',
-                'Dartford rent energy water tax Tv license groceries',
                 'Cambridgeshire rent energy water tax Tv license groceries',
+                'Coventry rent energy water tax Tv license groceries', 
+                'Dartford rent energy water tax Tv license groceries',
+                'Derby rent energy water tax Tv license groceries',
+                'Dundee rent energy water tax Tv license groceries',
+                'Durham rent energy water tax Tv license groceries',
+                'Essex rent energy water tax Tv license groceries',
+                'Glasgow rent energy water tax Tv license groceries',
                 'Gloucester rent energy water tax Tv license groceries',
                 'Gosport rent energy water tax Tv license groceries',
+                'Ireland rent energy water tax Tv license groceries',
+                'Leeds rent energy water tax Tv license groceries',
+                'Leicester rent energy water tax Tv license groceries',
+                'Lincoln rent energy water tax Tv license groceries',
+                'London rent energy water tax Tv license groceries',
+                'Loughborough rent energy water tax Tv license groceries',
+                'Luton rent energy water tax Tv license groceries',
+                'Manchester rent energy water tax Tv license groceries',
+                'Middlesbrough rent energy water tax Tv license groceries',
+                'Northampton rent energy water tax Tv license groceries',
                 'Peterborough rent energy water tax Tv license groceries',
+                'Scotland rent energy water tax Tv license groceries',
+                'Sheffield rent energy water tax Tv license groceries',
+                'Stoke rent energy water tax Tv license groceries',
+                'Sunderland rent energy water tax Tv license groceries',
                 'Surrey rent energy water tax Tv license groceries'
+                'Swanley rent energy water tax Tv license groceries',
+                'Walsall rent energy water tax Tv license groceries',
+                'Westminster rent energy water tax Tv license groceries',
+                'Wolverhampton rent energy water tax Tv license groceries'
             ]
+    
+    products = ['Top', 'Latest']
     
     columns = ["text", "username", "timestamp"]
     data = []
 
     for query in queries:
-        tweets = await client.search_tweet(query = query, product = "Top", count = 1000)
+        for product in products:
+            tweets = await client.search_tweet(query = query, product = product, count = 1000)
 
-        for tweet in tweets:
-            data.append([tweet.text, tweet.user.name, tweet.created_at])
+            for tweet in tweets:
+                data.append([tweet.text, tweet.user.name, tweet.created_at])
 
-            tweets_df = pd.DataFrame(data, columns = columns)
+                tweets_df = pd.DataFrame(data, columns = columns)
 
-            path = "tweets_df.csv"
+        path = "tweets_df.csv"
 
-            # for i in range(len(queries)):    
+        for i in range(len(queries)):    
             if os.path.exists(path):
-                new_path = "tweets_df" + str(1) + ".csv"
+                new_path = "tweets_df" + str(i) + ".csv"
                 # new_path = "tweets_df" + str(i) + ".csv"
                 tweets_df.to_csv(new_path, index = False)
             else:
