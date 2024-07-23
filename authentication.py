@@ -72,29 +72,29 @@ async def main():
                 'Wolverhampton rent energy water tax Tv license groceries'
             ]
     
-    products = ['Top', 'Latest']
+    # products = ['Top', 'Latest']
     
     columns = ["text", "username", "timestamp"]
     data = []
 
-    for query in queries:
-        for product in products:
-            tweets = await client.search_tweet(query = query, product = product, count = 1000)
+    for i, query in enumerate(queries):
+        # for product in products:
+        tweets = await client.search_tweet(query = query, product = "Top", count = 1000)
 
-            for tweet in tweets:
-                data.append([tweet.text, tweet.user.name, tweet.created_at])
+        for tweet in tweets:
+            data.append([tweet.text, tweet.user.name, tweet.created_at])
 
-                tweets_df = pd.DataFrame(data, columns = columns)
+            tweets_df = pd.DataFrame(data, columns = columns)
 
         path = "tweets_df.csv"
 
-        for i in range(len(queries)):    
-            if os.path.exists(path):
-                new_path = "tweets_df" + str(i) + ".csv"
-                # new_path = "tweets_df" + str(i) + ".csv"
-                tweets_df.to_csv(new_path, index = False)
-            else:
-                tweets_df.to_csv(path, index = False)
+        # for i in range(len(queries)):    
+        if os.path.exists(path):
+            new_path = "tweets_df" + str(i) + ".csv"
+            # new_path = "tweets_df" + str(i) + ".csv"
+            tweets_df.to_csv(new_path, index = False)
+        else:
+            tweets_df.to_csv(path, index = False)
 
 
 # Run the async function using the event loop
