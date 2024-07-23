@@ -4,12 +4,6 @@ import asyncio
 import os
 import pandas as pd
 
-# Use multiple keyword queries in your tweet search
-# Queries can include cities, apartment type, taxes, clothing, and other special fields,
-# Find a way to use airflow to automate this task extracting and savind the dataframes over a period of time.
-# Finally, merge all the dataframes in the extract function
-# Transform and load the dataframe
-# Play around with it  
 
 with open('keys.json') as file:
     keys = json.load(file)
@@ -77,8 +71,7 @@ async def main():
     columns = ["text", "username", "timestamp"]
     data = []
 
-    for i, query in enumerate(queries):
-        # for product in products:
+    for query in queries:
         tweets = await client.search_tweet(query = query, product = "Top", count = 1000)
 
         for tweet in tweets:
@@ -88,13 +81,13 @@ async def main():
 
         path = "tweets_df.csv"
 
-        # for i in range(len(queries)):    
-        if os.path.exists(path):
-            new_path = "tweets_df" + str(i) + ".csv"
-            # new_path = "tweets_df" + str(i) + ".csv"
-            tweets_df.to_csv(new_path, index = False)
-        else:
-            tweets_df.to_csv(path, index = False)
+        for i in range(len(queries)):    
+            if os.path.exists(path):
+                new_path = "tweets_df" + str(i) + ".csv"
+                # new_path = "tweets_df" + str(i) + ".csv"
+                tweets_df.to_csv(new_path, index = False)
+            else:
+                tweets_df.to_csv(path, index = False)
 
 
 # Run the async function using the event loop

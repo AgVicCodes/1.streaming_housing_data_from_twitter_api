@@ -1,14 +1,13 @@
-# from authentication import api
 import pandas as pd
-# query = "'Nigerians in the UK''What is the average monthly bills in your city?'-filter:replies AND -filter:retweets"
-# no_of_tweets = 50
+import glob
 
-# tweets = api.search_tweets(q = query, lang = "en", count_no = no_of_tweets, tweet_mode = "extended")
+csv_files = glob.glob(f"csv/*.{'csv'}")
 
-# attributes_container = [[tweet.user.name, tweet.created_at, tweet.full_text] for tweet in tweets]
+df_append = pd.DataFrame()
 
-# print(attributes_container)
+for csv in csv_files:
+    df_temp = pd.read_csv(csv)
+    df_append = df_append._append(df_temp, ignore_index = True)
 
-tweets_df = pd.read_csv("csv/tweets_df5.csv")
-
-print(tweets_df)
+df_append.to_parquet("parquet/twitter_df.parquet")
+df_append.to_csv("csv/twitter_df.csv")
