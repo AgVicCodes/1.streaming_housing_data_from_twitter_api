@@ -66,6 +66,8 @@ async def main():
                 'Wolverhampton rent energy water tax Tv license groceries'
             ]
     
+    counties = ['Aberdeen', 'Bedford', 'Birmingham', 'Bolton', 'Bristol', 'Canterbury', 'Cambridgeshire', 'Coventry', 'Dartford', 'Derby', 'Dundee', 'Durham', 'Essex', 'Glasgow', 'Gloucester', 'Gosport', 'Ireland', 'Leeds', 'Leicester', 'Lincoln', 'London', 'Loughborough', 'Luton', 'Manchester', 'Middlesbrough', 'Northampton', 'Peterborough', 'Scotland', 'Sheffield', 'Stoke', 'Sunderland', 'Surrey', 'Swanley', 'Walsall', 'Westminster', 'Wolverhampton']
+
     # products = ['Top', 'Latest']
     
     columns = ["text", "username", "timestamp"]

@@ -95,3 +95,15 @@ with open('keys.json') as file:
 # Finally, merge all the dataframes in the extract function
 # Transform and load the dataframe
 # Play around with it  
+
+# names = "Clary has 2 friends, she spends time with them, Susan has 3 brothers and, John 4 sisters"
+
+# sentiment = "Put vacation photos online (They were so cute) a few yrs ago. PC crashed, and now I forget the name of the site (I'm crying)."
+
+# word = "12345abcde45"
+
+# print(re.findall(r"(\w+)\s*\w*\s*(\d)\s(\w+)", names))
+
+# print(re.findall(r"\(.+?\)", sentiment))
+
+# print(re.findall(r"\d+?", word))
