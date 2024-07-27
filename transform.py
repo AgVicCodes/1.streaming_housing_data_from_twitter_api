@@ -21,23 +21,24 @@ df["text"] = df["text"].str.replace('\n', ' ').str.replace('  ', ' ')
 # county = re.compile(pattern)
 
 # rent_regex = r"[R|r]ent\s?[:|-]*\s?£?(?:\d?,?\d+)+"
-# energy_regex = r"[E|e]nergy\s?[:|-]*\s?£?(?:\d?,?\d+)+"
+energy_regex = r"[E|e]nergy\s?[:|-]*\s?(?:\w+\s*)*£?(?:\d?,?\d+)+"
 # water_regex = r"[W|w]ater\s?[:|-]*\s?£?(?:\d?,?\d+)+"
 # tax_regex = r"[T|t]ax\s?[:|-]*\s?£?(?:\d?,?\d+)+"
 # groceries_regex = r"[G|g]roceries\s?[:|-]*\s?£?(?:\d?,?\d+)+"
 # clothing_regex = r"[C|c]lothing\s?[:|-]*\s?£?(?:\d?,?\d+)+"
-room_regex = r"\d*\s*[B|b]edroom\s?[:|-]*\s?£?(?:\d?,?\d+)+"
+# room_regex = r"\d\s?(?:[B|b]edroom|[B|b]d|[B|b]ed|[R|r]oom)"
+# room_regex = r"[B|b]edroom\s?[:|-]*\s?£?(?:\d?,?\d+)+"
 # _regex = r"[R|r]ent\s?[:|-]*\s?£?(?:\d?,?\d+)+"
 # _regex = r"[R|r]ent\s?[:|-]*\s?£?(?:\d?,?\d+)+"
-county_regex = r"\b(?:Aberdeen|Bedford|Birmingham|Bolton|Bristol|Canterbury|Cambridgeshire|Coventry|Dartford|Derby|Dundee|Durham|Essex|Glasgow|Gloucester|Gosport|Ireland|Leeds|Leicester|Lincoln|London|Loughborough|Luton|Manchester|Middlesbrough|Northampton|Peterborough|Scotland|Sheffield|Stoke|Sunderland|Surrey|Swanley|Walsall|Westminster|Wolverhampton)\b"
+# county_regex = r"\b(?:Aberdeen|Bedford|Birmingham|Bolton|Bristol|Canterbury|Cambridgeshire|Coventry|Dartford|Derby|Dundee|Durham|Essex|Glasgow|Gloucester|Gosport|Ireland|Leeds|Leicester|Lincoln|London|Loughborough|Luton|Manchester|Middlesbrough|Northampton|Peterborough|Scotland|Sheffield|Stoke|Sunderland|Surrey|Swanley|Walsall|Westminster|Wolverhampton)\b"
 
 
 # regex = r"[R|r]ent\s*(?:\w*\s*)*\."
 
-regex1 = r"(?<!brown\s)(cat|dog)" # Look behind negative
-regex1 = r"(?<=brown\s)(cat|dog)" # Look behing
-regex2 = r"\w+\.txt(?=\stransferred)" # Look ahead
-regex2 = r"\w+\.txt(?!\stransferred)" # Look ahead negative
+# regex1 = r"(?<!brown\s)(cat|dog)" # Look behind negative
+# regex1 = r"(?<=brown\s)(cat|dog)" # Look behing
+# regex2 = r"\w+\.txt(?=\stransferred)" # Look ahead
+# regex2 = r"\w+\.txt(?!\stransferred)" # Look ahead negative
 
 rent = []
 counties = []
@@ -48,14 +49,14 @@ for index, row in df.iterrows():
     # rent.extend(rent_value)
     # matches = re.findall(county_regex, row['text'])
     # counties.extend(matches)
-    rooms = re.findall(room_regex, row['text'])
+    rooms = re.findall(energy_regex, row['text'])
     apartment.extend(rooms)
 
-print(len(rent))
-print(rent[:30])
+# print(len(rent))
+# print(rent[:30])
 
-print(len(counties))
-print(counties[:30])
+# print(len(counties))
+# print(counties[:30])
 
 print(len(apartment))
-print(apartment[:30])
+print(apartment[250:300])
