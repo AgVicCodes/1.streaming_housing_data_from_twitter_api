@@ -20,6 +20,8 @@ df["text"] = df["text"].str.replace('\n', ' ').str.replace('  ', ' ')
 
 # county = re.compile(pattern)
 
+# Add Bedroom to the rent regex pattern to find the ones with bedrooms inside
+
 # Selecting strings like Rent or rent with at most 1 or 0 space in front with
 # at 0 or more hyphens or colons and at most one or more space, Euro sign and 
 # Digits that represent the price 
