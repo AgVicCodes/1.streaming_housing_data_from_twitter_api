@@ -107,3 +107,13 @@ with open('keys.json') as file:
 # print(re.findall(r"\(.+?\)", sentiment))
 
 # print(re.findall(r"\d+?", word))
+
+# In adherence to PEP8
+# energy_regex = re.compile(r"""
+#     [Ee]nergy            # Match 'Energy' or 'energy'
+#     \s?                  # Optional whitespace
+#     [:|-]*               # Optional colon or hyphen
+#     \s?                  # Optional whitespace
+#     £?                   # Optional pound sign
+#     (?:\d{1,3},?)+       # Non-capturing group for digits with optional commas
+# """, re.VERBOSE)
