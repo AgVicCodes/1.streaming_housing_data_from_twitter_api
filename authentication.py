@@ -70,14 +70,14 @@ async def main():
 
     # products = ['Top', 'Latest']
     
-    columns = ["text", "username", "timestamp"]
+    columns = ["text", "username", "timestamp", "location"]
     data = []
 
     for query in queries:
         tweets = await client.search_tweet(query = query, product = "Top", count = 1000)
 
         for tweet in tweets:
-            data.append([tweet.text, tweet.user.name, tweet.created_at])
+            data.append([tweet.text, tweet.user.name, tweet.created_at, tweet.coordinates])
 
             tweets_df = pd.DataFrame(data, columns = columns)
 

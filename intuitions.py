@@ -117,3 +117,46 @@ with open('keys.json') as file:
 #     £?                   # Optional pound sign
 #     (?:\d{1,3},?)+       # Non-capturing group for digits with optional commas
 # """, re.VERBOSE)
+
+rent_regex = r"(?:[R|r]ent|[B|b]edroom|[B|b]d|[B|b]ed|[R|r]oom)\s?[:|-]*\s?£?(?:\d?,?\d+)+"
+energy_regex = r"[E|e]nergy\s?[:|-]*\s?(?:\w+\s*)*£?(?:\d?,?\d+)+"
+water_regex = r"[W|w]ater\s?[:|-]*\s?£?(?:\d?,?\d+)+"
+tax_regex = r"[T|t]ax\s?[:|-]*\s?£?(?:\d?,?\d+)+"
+groceries_regex = r"[G|g]roceries\s?[:|-]*\s?£?(?:\d?,?\d+)+"
+clothing_regex = r"[C|c]lothing\s?[:|-]*\s?£?(?:\d?,?\d+)+"
+
+# Selecting strings that match a digit,
+room_regex = r"\d\s?(?:[B|b]edroom|[B|b]d|[B|b]ed|[R|r]oom)"
+room_regex = r"\d\s?(?:[B|b]edroom|[B|b]d|[B|b]ed|[R|r]oom)\s?[:|-]*\s?£?(?:\d?,?\d+)+"
+county_regex = r"(?:Aberdeen|Bedford|Birmingham|Bolton|Bristol|Canterbury|Cambridgeshire|Coventry|Dartford|Derby|Dundee|Durham|Essex|Glasgow|Gloucester|Gosport|Ireland|Leeds|Leicester|Lincoln|London|Loughborough|Luton|Manchester|Middlesbrough|Northampton|Oxford|Peterborough|Scotland|Sheffield|Stoke|Sunderland|Surrey|Swanley|Walsall|Westminster|Wolverhampton)\b"
+
+rent = []
+counties = []
+apartment = []
+
+for index, row in df.iterrows():
+    rent_value = re.findall(rent_regex, row['text'])
+    rent.extend(rent_value)
+
+print(len(rent))
+print(rent[30:50])
+
+# Assuming df is your DataFrame and 'text' is the column with the text data
+
+# Your regular expression
+energy_regex = r"[Ee]nergy\s?[:|-]*\s?(?:\w+\s*)*£?(?:\d{1,3},?)+"
+
+# Apply the regular expression to the entire column at once using str.findall
+df['energy_matches'] = df['text'].apply(lambda x: re.findall(energy_regex, x))
+
+# If you need a flat list of all matches
+apartment = [item for sublist in df['energy_matches'] for item in sublist]
+
+# Print the results
+print(apartment)
+
+# new_cols = ["username", "location", "rent", "energy", "water", "council_tax", "groceries", "clothing"]
+
+# flat = [item for sublist in df["text"].apply(lambda x: re.findall(rent_regex, x)) for item in sublist]
+
+# df["rent"] = pd.Series(flat)
