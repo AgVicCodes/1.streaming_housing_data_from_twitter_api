@@ -241,3 +241,9 @@ clothing_regex = r"[C|c]lothing\s?[:|-]*\s?£?(?:\d?,?\d+)+"
 
 # print(len(rent))
 # print(rent[:70])
+
+# new_df.loc[new_df["county"].isna(), "county"] = "United Kingdom"
+
+# new_df["county"] = new_df["county"].fillna(0)
+
+# new_df["no_of_rooms"] = new_df["county"].fillna("United Kingdom")

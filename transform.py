@@ -25,11 +25,11 @@ df["text"] = df["text"].str.replace("\n", " ")
 
 df["county"] = df["text"].apply(lambda x: re.findall(county_regex, x)[0] if re.findall(county_regex, x) else np.NaN)
 
-df["room"] = df["text"].apply(lambda x: re.findall(room_regex, x)[0] if re.findall(room_regex, x) else np.NaN)
+df["no_of_rooms"] = df["text"].apply(lambda x: re.findall(room_regex, x)[0] if re.findall(room_regex, x) else np.NaN)
 
-df["rent"] = df["text"].apply(lambda x: re.findall(rent_regex, x)[0] if re.findall(rent_regex, x) else np.NaN)
+df["rent_cost"] = df["text"].apply(lambda x: re.findall(rent_regex, x)[0] if re.findall(rent_regex, x) else np.NaN)
 
-df["energy"] = df["text"].apply(lambda x: re.findall(energy_regex, x)[0] if re.findall(energy_regex, x) else np.NaN)
+df["energy_bill"] = df["text"].apply(lambda x: re.findall(energy_regex, x)[0] if re.findall(energy_regex, x) else np.NaN)
 
 df["water"] = df["text"].apply(lambda x: re.findall(water_regex, x)[0] if re.findall(water_regex, x) else np.NaN)
 
@@ -39,8 +39,11 @@ df["groceries"] = df["text"].apply(lambda x: re.findall(groceries_regex, x)[0] i
 
 df["clothing"] = df["text"].apply(lambda x: re.findall(clothing_regex, x)[0] if re.findall(clothing_regex, x) else np.NaN)  
 
+new_df = df[["username", "county", "no_of_rooms", "rent_cost", "energy_bill", "water", "council_tax", "groceries", "clothing"]]
+
+new_df.loc[new_df["county"].isna(), "county"] = "United Kingdom"
 
 
-print(df.head())
-print(df["room"].isnull().sum())
-print(df.shape[0] - df["room"].isnull().sum())
+
+
+print(new_df.head(30))
