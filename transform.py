@@ -43,7 +43,29 @@ new_df = df[["username", "county", "no_of_rooms", "rent_cost", "energy_bill", "w
 
 new_df.loc[new_df["county"].isna(), "county"] = "United Kingdom"
 
+rent_range = [0, 600, 1000, np.inf]
+
+room_map = [1, 2, 3]
+
+print(new_df["rent_cost"].dtype)
+
+new_df["rent_cost"] = new_df["rent_cost"].str.replace(",", "")
+
+new_df["rent_cost"] = new_df["rent_cost"].astype("float")
+
+print(new_df["rent_cost"].dtype)
+
+# new_df["rent_cost"] = new_df["rent_cost"].astype("float")
+
+new_df["room_no"] = pd.cut(new_df["rent_cost"], bins = rent_range, labels = room_map)
+
+# new_df.loc[new_df["no_of_rooms"].isna(), "no_of_rooms"] = new_df["room_no"]
+
+new_df["no_of_rooms"].fillna(pd.cut(new_df["rent_cost"], bins = rent_range, labels = room_map))
 
 
 
-print(new_df.head(30))
+# # new_df.loc[new_df["no_of_rooms"].isna(), "no_of_rooms"] = new_df["no_of_rooms"].map()
+
+
+print(new_df.sample(10))

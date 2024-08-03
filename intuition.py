@@ -247,3 +247,7 @@ clothing_regex = r"[C|c]lothing\s?[:|-]*\s?£?(?:\d?,?\d+)+"
 # new_df["county"] = new_df["county"].fillna(0)
 
 # new_df["no_of_rooms"] = new_df["county"].fillna("United Kingdom")
+
+# labels = ["{0} - {1}".format(i, i + 9) for i in range(0, 100, 10)]
+
+# print(labels)
