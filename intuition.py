@@ -251,3 +251,27 @@ clothing_regex = r"[C|c]lothing\s?[:|-]*\s?£?(?:\d?,?\d+)+"
 # labels = ["{0} - {1}".format(i, i + 9) for i in range(0, 100, 10)]
 
 # print(labels)
+
+
+# df["text"].astype(str).apply(lambda x: x.str.encode('ascii', 'ignore').str.decode('ascii'))
+# df["text"] = df["text"].astype(str).apply(lambda x: x.encode('ascii', 'ignore').decode('ascii'))
+# df["text"] = df["text"].apply(lambda x: x.encode('ascii', 'ignore').decode('ascii'))
+# df['text'] = df['text'].str.replace('[^A-Za-z0-9]', '', flags=re.UNICODE)
+# df['text'] = df['text'].apply(lambda s: emoji.replace_emoji(s, ''))
+
+
+# def remove_emoji(text):
+#     emoji_pattern = re.compile("["
+#                            u"\U0001F600-\U0001F64F"  # emoticons
+#                            u"\U0001F300-\U0001F5FF"  # symbols & pictographs
+#                            u"\U0001F680-\U0001F6FF"  # transport & map symbols
+#                            u"\U0001F1E0-\U0001F1FF"  # flags (iOS)
+#                            "]+", flags=re.UNICODE)
+#     return emoji_pattern.sub(r'', text)
+
+# new_df["water"].str.replace(",", "").astype("float")#.fillna((new_df["water"].mean()), inplace = True)
+# new_df["council_tax"].str.replace(",", "").astype("float")#.fillna((new_df["council_tax"].mean()), inplace = True)
+# new_df["groceries"].str.replace(",", "").astype("float")#.fillna((new_df["groceries"].mean()), inplace = True)
+# new_df["clothing"].str.replace(",", "").astype("float")#.fillna((new_df["clothing"].mean()), inplace = True)
+
+# new_df["no_of_rooms"] = new_df["no_of_rooms"].astype("float") if new_df["no_of_rooms"].any() != '' else np.NaN
