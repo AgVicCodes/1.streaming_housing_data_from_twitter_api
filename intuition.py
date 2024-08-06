@@ -275,3 +275,28 @@ clothing_regex = r"[C|c]lothing\s?[:|-]*\s?£?(?:\d?,?\d+)+"
 # new_df["clothing"].str.replace(",", "").astype("float")#.fillna((new_df["clothing"].mean()), inplace = True)
 
 # new_df["no_of_rooms"] = new_df["no_of_rooms"].astype("float") if new_df["no_of_rooms"].any() != '' else np.NaN
+
+# new_df["rent_cost"].fillna([*np.random.normal(1000, 10, 1)][0])
+
+# new_df["energy_bill"] = new_df["energy_bill"].fillna(pd.Series(np.random.normal(new_df["energy_bill"].mean(), 10, 1)))
+
+# new_df["energy_bill"].mask(new_df["energy_bill"].isna(), np.random.uniform(3, 331, size=new_df["energy_bill"].shape))
+
+# for value in range(len(pseudo_energy_bills)):
+#     new_df["energy_bill"] = new_df["energy_bill"].fillna(pseudo_energy_bills[value])
+#     value += 1
+
+# Correct code
+# new_df.loc[new_df.energy_bill.isna(), 'energy_bill'] = pseudo_energy_bills
+
+# pseudo_energy_bills = np.random.randint(500, 1300, new_df.energy_bill.isna().sum())
+
+
+
+# pseudo_energy_bills = np.random.randint(new_df["energy_bill"].mean(), new_df["energy_bill"].max(), new_df["energy_bill"].isna().sum())
+
+# new_df.loc[new_df.energy_bill.isna(), 'energy_bill'] = pseudo_energy_bills
+
+# rent_outliers = new_df["rent_cost"] > 3000
+
+# rent_outliers_df = new_df.loc[new_df["rent_cost"] > 3000]
