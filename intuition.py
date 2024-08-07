@@ -300,3 +300,5 @@ clothing_regex = r"[C|c]lothing\s?[:|-]*\s?£?(?:\d?,?\d+)+"
 # rent_outliers = new_df["rent_cost"] > 3000
 
 # rent_outliers_df = new_df.loc[new_df["rent_cost"] > 3000]
+
+# df.loc[:, "room_no"] = pd.cut(df["rent_cost"], bins = rent_range, labels = room_map)

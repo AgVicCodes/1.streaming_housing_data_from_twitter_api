@@ -12,6 +12,6 @@ subset = ["rent_cost", "energy_bill"]
 
 df = df.drop_duplicates(subset = "username", keep = "first")
 
-# df = df.dropna(subset = subset, how = "all")
+df = df.dropna(subset = subset, how = "all")
 
-print(df.count())
+# print(df.sample(10))
