@@ -13,7 +13,7 @@ pseudo_tax = np.round(np.random.normal(df["council_tax"].mean(), 10, df["council
 
 pseudo_groceries = np.round(np.random.normal(df["groceries"].mean(), 2, df["groceries"].isnull().sum()), -1)
 
-pseudo_clothing = np.round(np.random.normal(df["clothing"].mean(), 50, df["clothing"].isnull().sum()), -1)
+pseudo_clothing = np.round(np.random.normal(df["clothing"].mean(), 10, df["clothing"].isnull().sum()), -1)
 
 
 
@@ -42,5 +42,5 @@ df.loc[:, "no_of_rooms"] = df["no_of_rooms"].astype("category")
 
 # print(df["clothing"].min())
 
-print(df.head(10))
+# print(df.head(10))
 # print(df.sample(10))

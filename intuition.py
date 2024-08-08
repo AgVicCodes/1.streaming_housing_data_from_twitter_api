@@ -208,6 +208,38 @@ clothing_regex = r"[C|c]lothing\s?[:|-]*\s?£?(?:\d?,?\d+)+"
 
 # twitter_df = df[["location", "rooms", "rent", "energy", "water", "council_tax", "groceries", "clothing"]]
 
+
+
+# new_df.loc[new_df["county"].isna(), "county"] = "United Kingdom"
+
+# rent_range = [0, 600, 1000, np.inf]
+
+# room_map = ["1", "2", "3"]
+
+# print(new_df["rent_cost"].dtype)
+
+# new_df["rent_cost"] = new_df["rent_cost"].str.replace(",", "")
+
+# new_df["rent_cost"] = new_df["rent_cost"].astype("float")
+
+# print(new_df["rent_cost"].dtype)
+
+# # new_df["rent_cost"] = new_df["rent_cost"].astype("float")
+
+# new_df["room_no"] = pd.cut(new_df["rent_cost"], bins = rent_range, labels = room_map)
+
+# new_df.loc[new_df["no_of_rooms"].isna(), "no_of_rooms"] = new_df["room_no"]
+
+# new_df["no_of_rooms"] = new_df["no_of_rooms"].fillna(new_df["room_no"])
+
+
+
+# # new_df.loc[new_df["no_of_rooms"].isna(), "no_of_rooms"] = new_df["no_of_rooms"].map()
+
+
+# print(new_df.head())
+# print(new_df.sample(10))
+
 # new_df = twitter_df.copy()
 
 # new_df = new_df.dropna(subset = "rent")
@@ -302,3 +334,13 @@ clothing_regex = r"[C|c]lothing\s?[:|-]*\s?£?(?:\d?,?\d+)+"
 # rent_outliers_df = new_df.loc[new_df["rent_cost"] > 3000]
 
 # df.loc[:, "room_no"] = pd.cut(df["rent_cost"], bins = rent_range, labels = room_map)
+
+
+# new_df.loc[:, "rent_cost"] = new_df["rent_cost"].str.replace(",", "")
+
+# new_df["rent_cost"] = new_df["rent_cost"].astype("float")
+
+# print(new_df[new_df["rent_cost"] > 5000])
+
+url = "docity.com/en"
+
