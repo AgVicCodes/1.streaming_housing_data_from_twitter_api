@@ -13,7 +13,8 @@ df["clothing"] = df["clothing"].astype("float")
 # print(df[df["no_of_rooms"] == ""])
 
 
-print(df.info())
-print(df.describe(include = "all"))
+# print(df.info())
+# print(df.describe(include = "all"))
 # print(df["no_of_rooms"].unique())
 # print(df[df["username"] == "SK 🇬🇧🇬🇧"])
+print(df.head())
