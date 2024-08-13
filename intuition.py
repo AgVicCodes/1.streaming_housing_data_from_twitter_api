@@ -344,3 +344,24 @@ clothing_regex = r"[C|c]lothing\s?[:|-]*\s?£?(?:\d?,?\d+)+"
 
 url = "docity.com/en"
 
+# Numpy style
+""" Summary Line.
+
+    Extended description of function.
+
+    Parameters
+    __________
+    arg1 : int
+        Desc of arg1 ... 
+
+"""
+
+
+# path = "tweets_df.csv"
+
+# for i in range(len(queries)):    
+#     if os.path.exists(path):
+#         new_path = "tweets_df" + str(i) + ".csv"
+#         tweets_df.to_csv(new_path, index = False)
+#     else:
+#         tweets_df.to_csv(path, index = False)
