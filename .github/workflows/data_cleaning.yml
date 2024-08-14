@@ -1,0 +1,8 @@
+name: Data-cleaner
+
+on: push
+
+jobs:
+    data-clean:
+        name: Data cleaning
+        runs-on: ubuntu-latest

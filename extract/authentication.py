@@ -65,15 +65,15 @@ def extract_tweets():
 
     # Defining an async function to handle the async login
     async def main():
-        # try:
-        await client.login(
-            auth_info_1 = keys['Email'],
-            auth_info_2 = keys['Username'],
-            password = keys['Password']
-        )
-        # except Exception as e:
-        #     print(f"Login failed: {e}")
-        #     return
+        try:
+            await client.login(
+                auth_info_1 = keys['Email'],
+                auth_info_2 = keys['Username'],
+                password = keys['Password']
+            )
+        except Exception as e:
+            print(f"Login failed: {e}")
+            return
 
         try:
             client.save_cookies('cookies.json')

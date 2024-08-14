@@ -14,4 +14,10 @@ def convert_type(df):
     
     df["clothing"] = df["clothing"].astype("float")
 
-    return df
+    clean_df = df[["county", "no_of_rooms", "rent_cost", "energy_bill", "water", "council_tax", "groceries", "clothing"]]
+
+    clean_df = clean_df.reset_index()
+
+    clean_df.head()
+
+    return clean_df
