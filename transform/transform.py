@@ -19,7 +19,7 @@ room_regex = r"(\d)\s?(?:[Bb]edroom|[Bb]d|[Bb]ed|[Rr]oom)"
 
 county_regex = r"(?:Aberdeen|Bedford|Birmingham|Bolton|Bristol|Canterbury|Cambridgeshire|Coventry|Dartford|Derby|Dundee|Durham|Essex|Glasgow|Gloucester|Gosport|Ireland|Leeds|Leicester|Lincoln|London|Loughborough|Luton|Manchester|Middlesbrough|Northampton|Oxford|Peterborough|Scotland|Sheffield|Stoke|Sunderland|Surrey|Swanley|Walsall|Westminster|Wolverhampton)\b"
 
-df = pd.read_parquet("parquet/twitter_df.parquet", engine = "pyarrow")
+df = pd.read_parquet("data/parquet/twitter_df.parquet", engine = "pyarrow")
 
 df["text"] = df["text"].str.replace("\n", " ")
 
