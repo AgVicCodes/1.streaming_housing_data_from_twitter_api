@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import re
 
-def extract_regex():
+def extract_data():
 
     df = pd.read_parquet("data/parquet/twitter_df.parquet", engine = "pyarrow")
 

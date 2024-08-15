@@ -1,15 +1,15 @@
 import pandas as pd
-from extract.extract import merge_csv
-from extract.extract_regex import extract_regex
-from transform.clean_type import string_to_float
-from transform.replace_nan import populate_df
-from transform.clean_dup import remove_na_dup
-from transform.check_na import convert_type
-from load.load_data import load_data
+from extract import merge_csv
+from extract import extract_data
+from transform import string_to_float
+from transform import populate_df
+from transform import remove_na_dup
+from transform import convert_type
+from load import load_data
 
 merge_csv()
 
-df = extract_regex()
+df = extract_data()
 
 df = string_to_float(df)
 
