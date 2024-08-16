@@ -365,3 +365,23 @@ url = "docity.com/en"
 #         tweets_df.to_csv(new_path, index = False)
 #     else:
 #         tweets_df.to_csv(path, index = False)
+
+# print(t0)
+
+# merge_csv()
+
+# df = extract_data()
+
+# df = string_to_float(df)
+
+# df = populate_df(df)
+
+# df = remove_na_dup(df)
+
+# df = convert_type(df)
+
+# load_data(df)
+
+# clean_df = pd.read_parquet("data/parquet/clean_df.parquet", engine = "pyarrow")
+
+# print(clean_df.head())

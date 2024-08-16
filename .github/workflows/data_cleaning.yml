@@ -1,8 +1,36 @@
-name: Data-cleaner
+name: data-pipeline-workflow
 
-on: push
+# on: 
+#     push
+on:
+    push:
+    workflow_dispatch:
+    schedule:
+        - cron: "0 18 * * 5"
 
 jobs:
-    data-clean:
-        name: Data cleaning
+    run_data_pipeline:
         runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout repo content
+                uses: actions/checkout@main
+                with:
+                    token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+            -   name: Setup Python   
+                uses: actions/setup-python@main
+                with:
+                    python-version: "3.12.5"
+                    cache: "pip"
+            -   name: Install dependencies
+                run: pip install -r requirements.txt
+            -   name: Run data pipeline
+                run: python pipeline.py
+            -   name: Check for changes
+                id: git-check
+                run: |
+                    
+
+                    # jobs:
+#     data-clean:
+#         name: Data cleaning
+#         runs-on: ubuntu-latest
